@@ -1,12 +1,19 @@
-class Point:
-    def __new__(cls, *args, **kwargs):
-        print("__new__ " + str(cls))
-        return super().__new__(cls)
+class Vector:
+    MIN_COORD = 0
+    MAX_COORD = 100
 
-    def __init__(self, x=0, y=0):
-        print("__init__ " + str(self))
+    @classmethod
+    def validate(cls, arg):
+        return cls.MIN_COORD <= arg <= cls.MAX_COORD
+
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
+    def get_coord(self):
+        return self.x, self.y
 
-pt = Point(10, 20)
+test_vector = Vector(10, 20)
+print(Vector.validate(5))
+res = Vector.get_coord(test_vector)
+print(res)
