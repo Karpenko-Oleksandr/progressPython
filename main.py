@@ -1,11 +1,12 @@
-def factorial(n):
-    if n == 0:
-        return 1  
-    else:
-        result = 1
-        for i in range(1, n + 1): 
-            result *= i 
-        return result
+class Point:
+    def __new__(cls, *args, **kwargs):
+        print("__new__ " + str(cls))
+        return super().__new__(cls)
 
-n = 5
-print(f"Факторіал числа {n} дорівнює {factorial(n)}")
+    def __init__(self, x=0, y=0):
+        print("__init__ " + str(self))
+        self.x = x
+        self.y = y
+
+
+pt = Point(10, 20)
