@@ -13,7 +13,9 @@ class Vector:
     def get_coord(self):
         return self.x, self.y
 
+    @staticmethod
+    def norm2(x, y):
+        return x*x + y*y
+
 test_vector = Vector(10, 20)
-print(Vector.validate(5))
-res = Vector.get_coord(test_vector)
-print(res)
+print(Vector.norm2(5, 6))
