@@ -11,7 +11,11 @@ class Person:
     def old(self, old):
         self.__old = old
 
-    
+    @old.deleter
+    def old(self):
+        del self.__old
+
 test_person = Person("Stephen", 35)
+del p.old
 test_person.old = 25
 print(test_person.old)
