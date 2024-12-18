@@ -1,9 +1,16 @@
-class ThreadData:
-    __share_attrs = {
-        'name': 'thread_1',
-        'data': {},
-        'id': 1
-    }
+class Person:
+    def __init__(self, name, old):
+        self.__name = name
+        self.__old = old
 
-    def __init__(self):
-        self.__dict__= self.__share_attrs
+    def get_old(self):
+        return self.__old
+    
+    def set_old(self, old):
+        self.__old = old
+
+    old =property(get_old, set_old)
+    
+test_person = Person("Stephen", 35)
+test_person.old = 25
+print(test_person.old)
