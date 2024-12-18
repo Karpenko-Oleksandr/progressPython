@@ -3,13 +3,14 @@ class Person:
         self.__name = name
         self.__old = old
 
-    def get_old(self):
+    @property
+    def old(self):
         return self.__old
     
-    def set_old(self, old):
+    @old.setter
+    def old(self, old):
         self.__old = old
 
-    old =property(get_old, set_old)
     
 test_person = Person("Stephen", 35)
 test_person.old = 25
