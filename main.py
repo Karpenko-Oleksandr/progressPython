@@ -1,21 +1,24 @@
-class Person:
-    def __init__(self, name, old):
-        self.__name = name
-        self.__old = old
+class Сharacter:
+    MIN_HEALTH = 0
+    MAX_HEALTH = 100
+    USER_HEALTH = 100
 
-    @property
-    def old(self):
-        return self.__old
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
     
-    @old.setter
-    def old(self, old):
-        self.__old = old
+    @classmethod
+    def bite(cls, damage):
+        cls.USER_HEALTH -= damage
+        if cls.USER_HEALTH <= 0:
+            return "You're dead"
+        else:
+            return cls.USER_HEALTH
 
-    @old.deleter
-    def old(self):
-        del self.__old
+    @staticmethod
+    def say_word(word):
+        return word
 
-test_person = Person("Stephen", 35)
-del p.old
-test_person.old = 25
-print(test_person.old)
+    
+ugo = Сharacter("Ugo", 25)
+print(Сharacter.say_word("UgoGa"))
