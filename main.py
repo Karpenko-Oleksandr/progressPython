@@ -1,24 +1,14 @@
-class Сharacter:
-    MIN_HEALTH = 0
-    MAX_HEALTH = 100
-    USER_HEALTH = 100
+from accessify import private, protected
 
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-    
+class Numbers:
+    favorite_number = 18
+    def __init__(self, number):
+        self._number = number
+
+    @private
     @classmethod
-    def bite(cls, damage):
-        cls.USER_HEALTH -= damage
-        if cls.USER_HEALTH <= 0:
-            return "You're dead"
-        else:
-            return cls.USER_HEALTH
+    def print_favorite_number(cls):
+        return cls.favorite_number
 
-    @staticmethod
-    def say_word(word):
-        return word
 
-    
-ugo = Сharacter("Ugo", 25)
-print(Сharacter.say_word("UgoGa"))
+print(Numbers.print_favorite_number())
