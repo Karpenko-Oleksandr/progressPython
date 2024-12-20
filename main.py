@@ -1,17 +1,21 @@
 class Person:
-    def __new__(cls, *args):
-        print("Hi, I'm a person!")
-        return super().__new__(cls)
-
     def __init__(self, name, age):
-        self.name = name
-        self.age = age
-        
-    def __del__(self):
-        print("deleted")
+        self.__name = name
+        self.__age = age
 
+    @property   
+    def age(self):
+        return self.__age
+
+    @age.setter
+    def age(self, age):
+        self.__age = age
+
+    @age.deleter
+    def age(self):
+        print("Deleted")
     
 p = Person("Person", 33)
-
-p.name = "First_Person"
-print(p.name)
+p.age = 34
+print(p.age, p.__dict__)
+del p.age
