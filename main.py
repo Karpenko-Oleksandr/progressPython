@@ -1,14 +1,17 @@
-from accessify import private, protected
+class Person:
+    def __new__(cls, *args):
+        print("Hi, I'm a person!")
+        return super().__new__(cls)
 
-class Numbers:
-    favorite_number = 18
-    def __init__(self, number):
-        self._number = number
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+    def __del__(self):
+        print("deleted")
 
-    @private
-    @classmethod
-    def print_favorite_number(cls):
-        return cls.favorite_number
+    
+p = Person("Person", 33)
 
-
-print(Numbers.print_favorite_number())
+p.name = "First_Person"
+print(p.name)
