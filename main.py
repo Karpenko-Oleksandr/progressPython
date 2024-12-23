@@ -1,21 +1,24 @@
-class Person:
-    def __init__(self, name, age):
-        self.__name = name
-        self.__age = age
+class Line:
+    name = "Line"
+    sm = "Something"
 
-    @property   
-    def age(self):
-        return self.__age
+    def draw(self):
+        print("Line")
 
-    @age.setter
-    def age(self, age):
-        self.__age = age
+class Circle(Line):
+    name = "Circle"
 
-    @age.deleter
-    def age(self):
-        print("Deleted")
+    def draw(self):
+        print("Circle")
+
+class Rectangle(Circle):
+    name = "Rectangle"
     
-p = Person("Person", 33)
-p.age = 34
-print(p.age, p.__dict__)
-del p.age
+
+l = Line()
+g = Circle()
+r = Rectangle()
+
+l.draw()
+g.draw()
+print(r.sm)
