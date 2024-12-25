@@ -1,24 +1,11 @@
 class Line:
-    name = "Line"
-    sm = "Something"
+    __slots__ = ['x1', 'y1', 'x2', 'y2']
+    def __init__(self, x1, y1, x2, y2):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
 
-    def draw(self):
-        print("Line")
 
-class Circle(Line):
-    name = "Circle"
-
-    def draw(self):
-        print("Circle")
-
-class Rectangle(Circle):
-    name = "Rectangle"
-    
-
-l = Line()
-g = Circle()
-r = Rectangle()
-
-l.draw()
-g.draw()
-print(r.sm)
+pt = Line(1, 2, 3, 4)
+print(pt.__slots__)
