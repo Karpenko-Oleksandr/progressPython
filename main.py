@@ -1,11 +1,10 @@
-class Line:
-    __slots__ = ['x1', 'y1', 'x2', 'y2']
-    def __init__(self, x1, y1, x2, y2):
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
+from dataclasses import dataclass
 
+@dataclass
+class Things:
+    name: str
+    weight: float
+    amount: int
 
-pt = Line(1, 2, 3, 4)
-print(pt.__slots__)
+tg = Things("PC", 3.4, 1)
+print(tg)
