@@ -6,5 +6,18 @@ class Things:
     weight: float
     amount: int
 
-tg = Things("PC", 3.4, 1)
-print(tg)
+    def __eq__(self, other):
+        if self.name == other.name:
+            return self.weight == other.weight
+        else:
+            return "We need the same things!"
+
+@dataclass
+class PC(Things):
+    model: str
+    description: str
+    price = 0
+
+acer = PC("Acer 22", "maybe cool pc", "22", "some description", 12222)
+
+print(acer.__dict__)
