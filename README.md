@@ -1,1 +1,1 @@
-I created this repository to track my progress in learning the Python programming language.
+This repository contains algorithms implemented in Python.
